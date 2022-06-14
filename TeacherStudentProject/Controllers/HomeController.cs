@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinalTeacherStudentProject.Data.ApplicationContext;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace TeacherStudentProject.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public  IActionResult Index(string searchString)
         {
             return View();
         }
@@ -31,6 +32,7 @@ namespace TeacherStudentProject.Controllers
         {
             return View();
         }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

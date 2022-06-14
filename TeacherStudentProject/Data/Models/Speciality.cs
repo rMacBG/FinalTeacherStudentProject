@@ -8,7 +8,7 @@ namespace FinalTeacherStudentProject.Data.Models
 {
    public class Speciality : BaseModel
     {
-        
+     
         public Speciality SpecialityType { get; set; }
     }
 }
