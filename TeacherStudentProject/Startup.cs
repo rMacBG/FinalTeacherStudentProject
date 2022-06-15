@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TeacherStudentProject;
-using TeacherStudentProject.Data.Models;
+using TeacherStudentProject.Models;
 namespace TeacherStudentProject
 {
     public class Startup

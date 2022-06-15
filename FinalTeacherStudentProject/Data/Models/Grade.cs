@@ -8,7 +8,7 @@ namespace FinalTeacherStudentProject.Data.Models
 {
   public class Grade : BaseModel
     {
-        public int Id { get; set; }
+        public new int Id { get; set; }
         public Grade Grades { get; set; }
     }
 }
