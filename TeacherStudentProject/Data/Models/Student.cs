@@ -25,7 +25,7 @@ namespace FinalTeacherStudentProject.Data.Models
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }
         public string Speciality { get; set; }
-        public string Grade { get; set; }
+        public Grade Grade { get; set; }
 
         public DateTime BirthDate { get; set; }
 

@@ -10,7 +10,9 @@ namespace FinalTeacherStudentProject.Data.Models
 {
    public class Speciality : BaseModel
     {
-      
-        public Speciality SpecialityType { get; set; }
+
+
+        public string SpecialityName { get; set; }
+        public List<Speciality> SpecialityNames { get; set; }
     }
 }

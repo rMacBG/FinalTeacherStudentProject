@@ -4,14 +4,16 @@ using FinalTeacherStudentProject.Data.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TeacherStudentProject.Migrations
 {
     [DbContext(typeof(SchoolLibDbContext))]
-    partial class SchoolLibDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220617175927_DiagramChange")]
+    partial class DiagramChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,18 +78,15 @@ namespace TeacherStudentProject.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SpecialityId")
+                    b.Property<string>("SpecialityTypeId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SpecialityName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TeacherId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SpecialityId");
+                    b.HasIndex("SpecialityTypeId");
 
                     b.HasIndex("TeacherId");
 
@@ -189,13 +188,15 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Speciality", b =>
                 {
-                    b.HasOne("FinalTeacherStudentProject.Data.Models.Speciality", null)
-                        .WithMany("SpecialityNames")
-                        .HasForeignKey("SpecialityId");
+                    b.HasOne("FinalTeacherStudentProject.Data.Models.Speciality", "SpecialityType")
+                        .WithMany()
+                        .HasForeignKey("SpecialityTypeId");
 
                     b.HasOne("FinalTeacherStudentProject.Data.Models.Teacher", null)
                         .WithMany("Specialities")
                         .HasForeignKey("TeacherId");
+
+                    b.Navigation("SpecialityType");
                 });
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Student", b =>
@@ -205,11 +206,6 @@ namespace TeacherStudentProject.Migrations
                         .HasForeignKey("GradeId");
 
                     b.Navigation("Grade");
-                });
-
-            modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Speciality", b =>
-                {
-                    b.Navigation("SpecialityNames");
                 });
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Student", b =>

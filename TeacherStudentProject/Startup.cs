@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TeacherStudentProject;
+using TeacherStudentProject.Data.DataSeeder;
 using TeacherStudentProject.Models;
 namespace TeacherStudentProject
 {
@@ -77,6 +78,7 @@ namespace TeacherStudentProject
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            SeedData.Seed(app);
         }
     }
 }
