@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinalTeacherStudentProject.Data.ApplicationContext;
 using FinalTeacherStudentProject.Data.Models;
+using TeacherStudentProject.Services;
+using TeacherStudentProject.Services.Interfaces;
 
 namespace TeacherStudentProject.Controllers
 {
