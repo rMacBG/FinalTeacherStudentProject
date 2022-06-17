@@ -4,14 +4,16 @@ using FinalTeacherStudentProject.Data.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TeacherStudentProject.Migrations
 {
     [DbContext(typeof(SchoolLibDbContext))]
-    partial class SchoolLibDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220617200248_GradeAndSpecialityChanges")]
+    partial class GradeAndSpecialityChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,15 +60,10 @@ namespace TeacherStudentProject.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("GradeId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Grades")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GradeId");
 
                     b.ToTable("Grades");
                 });
@@ -79,9 +76,6 @@ namespace TeacherStudentProject.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SpecialityId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("SpecialityName")
                         .HasColumnType("nvarchar(max)");
 
@@ -89,8 +83,6 @@ namespace TeacherStudentProject.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SpecialityId");
 
                     b.HasIndex("TeacherId");
 
@@ -181,19 +173,8 @@ namespace TeacherStudentProject.Migrations
                     b.Navigation("EmailType");
                 });
 
-            modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Grade", b =>
-                {
-                    b.HasOne("FinalTeacherStudentProject.Data.Models.Grade", null)
-                        .WithMany("Grading")
-                        .HasForeignKey("GradeId");
-                });
-
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Speciality", b =>
                 {
-                    b.HasOne("FinalTeacherStudentProject.Data.Models.Speciality", null)
-                        .WithMany("SpecialityNames")
-                        .HasForeignKey("SpecialityId");
-
                     b.HasOne("FinalTeacherStudentProject.Data.Models.Teacher", null)
                         .WithMany("Specialities")
                         .HasForeignKey("TeacherId");
@@ -206,16 +187,6 @@ namespace TeacherStudentProject.Migrations
                         .HasForeignKey("GradeId");
 
                     b.Navigation("Grade");
-                });
-
-            modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Grade", b =>
-                {
-                    b.Navigation("Grading");
-                });
-
-            modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Speciality", b =>
-                {
-                    b.Navigation("SpecialityNames");
                 });
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Student", b =>

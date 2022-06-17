@@ -13,14 +13,16 @@ namespace FinalTeacherStudentProject.Data.Models
 
        
 
-        [Required]
+        [Required(ErrorMessage ="A First Name is required to be given!")]
         [StringLength(45, MinimumLength = 2)]
         [Display(Name= "First Name")]
         public string FirstName { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "A Surname is required to be given!")]
         [StringLength(45, MinimumLength = 2)]
         public string Surname { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "A Family Name is required to be given!")]
         [StringLength(45, MinimumLength = 2)]
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }

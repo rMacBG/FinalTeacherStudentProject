@@ -14,7 +14,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using TeacherStudentProject;
 using TeacherStudentProject.Data.DataSeeder;
+using TeacherStudentProject.Data.Services.Services;
 using TeacherStudentProject.Models;
+using TeacherStudentProject.Services.Interfaces;
+
 namespace TeacherStudentProject
 {
     public class Startup
@@ -36,17 +39,14 @@ namespace TeacherStudentProject
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            //Services Configs
+            services.AddScoped<IStudentService, StudentService>();
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<SchoolLibDbContext>();
             services.AddControllersWithViews();
-            
-            
 
             
-
-           
-          
-
         }
 
         

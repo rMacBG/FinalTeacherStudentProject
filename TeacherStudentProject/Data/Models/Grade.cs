@@ -8,7 +8,10 @@ namespace FinalTeacherStudentProject.Data.Models
 {
   public class Grade : BaseModel
     {
-        
-        public Grade Grades { get; set; }
+        public string Grades { get; set; }
+
+        public List<Grade> Grading { get; set; }
+
+
     }
 }

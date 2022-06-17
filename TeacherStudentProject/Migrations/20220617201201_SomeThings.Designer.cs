@@ -4,14 +4,16 @@ using FinalTeacherStudentProject.Data.ApplicationContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TeacherStudentProject.Migrations
 {
     [DbContext(typeof(SchoolLibDbContext))]
-    partial class SchoolLibDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220617201201_SomeThings")]
+    partial class SomeThings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

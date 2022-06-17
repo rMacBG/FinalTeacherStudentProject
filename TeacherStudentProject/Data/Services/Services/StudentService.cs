@@ -1,5 +1,6 @@
 ﻿using FinalTeacherStudentProject.Data.ApplicationContext;
 using FinalTeacherStudentProject.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,10 @@ namespace TeacherStudentProject.Data.Services.Services
         {
             _context = context;
         }
-        public void Create(Student student)
+        public async Task AddAsync(Student student)
         {
-            throw new NotImplementedException();
+            await _context.Students.AddAsync(student);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -25,15 +27,16 @@ namespace TeacherStudentProject.Data.Services.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Student> GetAll(string FirstName)
+        public async Task<IEnumerable<Student>> GetAllAsync()
         {
-            var result = _context.Students.ToList();
+            var  result = await _context.Students.ToListAsync();
             return result;
         }
 
-        public Student GetById(int id)
+        public async Task<Student> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Students.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
         public Student Update(int id, Student newStudent)
