@@ -12,7 +12,8 @@ using TeacherStudentProject.Services.Interfaces;
 
 namespace TeacherStudentProject.Controllers
 {
-    public class StudentsController : Controller {
+    public class StudentsController : Controller 
+    {
         private readonly IStudentService _service;
 
         public StudentsController(IStudentService service)

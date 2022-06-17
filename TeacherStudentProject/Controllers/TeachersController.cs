@@ -12,8 +12,9 @@ using TeacherStudentProject.Data.Services.Interfaces;
 namespace TeacherStudentProject.Controllers
 {
     public class TeachersController : Controller
-    { 
+    {
         private readonly ITeacherService _service;
+
         public TeachersController(ITeacherService service)
         {
             _service = service;
@@ -32,14 +33,14 @@ namespace TeacherStudentProject.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")]Teacher teacher)
+        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(teacher);
-            }
-            await _service.AddAsync(teacher);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+           {
+              await _service.AddAsync(teacher);
+               return RedirectToAction(nameof(Index));
+           }
+           return View(teacher);
         }
 
         public async Task<IActionResult> Details(string id)
@@ -57,7 +58,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> Edit(string id,[Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")]Teacher teacher)
+        public async Task<IActionResult> Edit(string id, [Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -76,12 +77,13 @@ namespace TeacherStudentProject.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var studentDetails = await _service.GetByIdAsync(id);
-            if (studentDetails == null) return View("NotFound");
+            var teacherDetails = await _service.GetByIdAsync(id);
+            if (teacherDetails == null) return View("NotFound");
 
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+        //////////////////////////////////////////////////////////
         //private readonly SchoolLibDbContext _context;
 
         //public TeachersController(SchoolLibDbContext context)
@@ -119,7 +121,7 @@ namespace TeacherStudentProject.Controllers
         //    return View();
         //}
 
-        
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
@@ -133,7 +135,7 @@ namespace TeacherStudentProject.Controllers
         //    return View(teacher);
         //}
 
-        
+
         //public async Task<IActionResult> Edit(string id)
         //{
         //    if (id == null)
@@ -149,7 +151,7 @@ namespace TeacherStudentProject.Controllers
         //    return View(teacher);
         //}
 
-      
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> Edit(string id, [Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
