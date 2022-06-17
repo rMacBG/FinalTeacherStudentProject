@@ -19,7 +19,7 @@ namespace TeacherStudentProject.Data.DataSeeder
 
                 context.Database.EnsureCreated();
 
-                if (!context.Students.Any())
+                if (context.Students.Any())
                 {
                     context.Students.AddRange(new List<Student>()
 
