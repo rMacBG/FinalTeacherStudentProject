@@ -22,9 +22,11 @@ namespace TeacherStudentProject.Data.Services.Services
             await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Students.FirstOrDefaultAsync(n => n.Id == id);
+            _context.Students.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Student>> GetAllAsync()
@@ -39,9 +41,11 @@ namespace TeacherStudentProject.Data.Services.Services
             return result;
         }
 
-        public Student Update(int id, Student newStudent)
+        public async Task<Student> UpdateAsync(string id, Student newStudent)
         {
-            throw new NotImplementedException();
+            _context.Update(newStudent);
+            await _context.SaveChangesAsync();
+            return newStudent;
         }
     }
 }

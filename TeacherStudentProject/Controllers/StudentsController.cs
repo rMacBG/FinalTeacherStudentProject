@@ -16,7 +16,7 @@ namespace TeacherStudentProject.Controllers
         private readonly IStudentService _service;
 
         public StudentsController(IStudentService service)
-        {
+        { 
             _service = service;
         }
 
@@ -44,11 +44,44 @@ namespace TeacherStudentProject.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
-            if (studentDetails == null) return View("Empty");
+            if (studentDetails == null) return View("NotFound");
             return View(studentDetails);
-            {
+            
+        }
+        public async Task<IActionResult> Edit(string id)
+        {
+            var studentDetails = await _service.GetByIdAsync(id);
+            if (studentDetails == null) return View("NotFound");
+            return View(studentDetails);
+            
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,Id,CreatedAt")] Student student)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(student);
             }
+            await _service.UpdateAsync(id, student);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            var studentDetails = await _service.GetByIdAsync(id);
+            if (studentDetails == null) return View("NotFound");
+            return View(studentDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var studentDetails =  await _service.GetByIdAsync(id);
+            if (studentDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
 
         //    {
