@@ -35,7 +35,7 @@ namespace TeacherStudentProject.Controllers
 
         public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
            {
               await _service.AddAsync(teacher);
                return RedirectToAction(nameof(Index));
