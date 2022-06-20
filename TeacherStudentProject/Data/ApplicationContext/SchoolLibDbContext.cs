@@ -26,7 +26,7 @@ namespace FinalTeacherStudentProject.Data.ApplicationContext
         {
 
             optionsBuilder.UseSqlServer(
-                @"Server=DESKTOP-APPA48Q;Database=TeachersBook;Trusted_Connection=True");
+                @"Server=DESKTOP-APPA48Q;Database=TeachersBook2;Trusted_Connection=True");
         }
     }
 }

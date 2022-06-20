@@ -23,7 +23,7 @@ namespace TeacherStudentProject.Data.Services.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteAsync(int id)
         {
             var result = await _context.Teachers.FirstOrDefaultAsync(n => n.Id == id);
             _context.Teachers.Remove(result);
@@ -36,13 +36,13 @@ namespace TeacherStudentProject.Data.Services.Services
             return result;
         }
 
-        public async Task<Teacher> GetByIdAsync(string id)
+        public async Task<Teacher> GetByIdAsync(int id)
         {
             var result = await _context.Teachers.FirstOrDefaultAsync(n => n.Id == id);
             return result;
         }
 
-        public async Task<Teacher> UpdateAsync(string id, Teacher newTeacher)
+        public async Task<Teacher> UpdateAsync(int id, Teacher newTeacher)
         {
             _context.Update(newTeacher);
             await _context.SaveChangesAsync();

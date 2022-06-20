@@ -79,7 +79,7 @@ namespace TeacherStudentProject
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            SeedData.Seed(app);
+            //SeedData.Seed(app);
         }
     }
 }

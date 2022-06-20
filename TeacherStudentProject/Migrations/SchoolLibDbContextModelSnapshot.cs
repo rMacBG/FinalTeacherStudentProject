@@ -21,8 +21,10 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Email", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -30,14 +32,14 @@ namespace TeacherStudentProject.Migrations
                     b.Property<string>("EmailInformatiuon")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmailTypeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("EmailTypeId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("StudentId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("TeacherId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -52,14 +54,16 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Grade", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("GradeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("GradeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Grades")
                         .HasColumnType("nvarchar(max)");
@@ -73,20 +77,22 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Speciality", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SpecialityId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("SpecialityId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SpecialityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TeacherId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -99,8 +105,10 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Student", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -118,8 +126,8 @@ namespace TeacherStudentProject.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.Property<string>("GradeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("GradeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Speciality")
                         .HasColumnType("nvarchar(max)");
@@ -138,8 +146,10 @@ namespace TeacherStudentProject.Migrations
 
             modelBuilder.Entity("FinalTeacherStudentProject.Data.Models.Teacher", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");

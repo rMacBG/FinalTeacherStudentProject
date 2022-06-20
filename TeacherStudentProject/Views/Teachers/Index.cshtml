@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
@@ -21,7 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.FamilyName)
             </th>
-           
+
             <th>
                 @Html.DisplayNameFor(model => model.CreatedAt)
             </th>
@@ -32,6 +35,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
@@ -40,7 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FamilyName)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>

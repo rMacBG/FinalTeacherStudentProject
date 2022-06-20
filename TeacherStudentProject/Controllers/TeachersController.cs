@@ -33,7 +33,7 @@ namespace TeacherStudentProject.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
+        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,CreatedAt")] Teacher teacher)
         {
             if (!ModelState.IsValid)
            {
@@ -43,14 +43,14 @@ namespace TeacherStudentProject.Controllers
            return View(teacher);
         }
 
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
             return View(teacherDetails);
         }
 
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
@@ -58,7 +58,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, [Bind("FirstName,Surname,FamilyName,BirthDate,Id,CreatedAt")] Teacher teacher)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,Surname,FamilyName,BirthDate,CreatedAt")] Teacher teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace TeacherStudentProject.Controllers
             await _service.UpdateAsync(id, teacher);
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
@@ -75,7 +75,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");

@@ -32,7 +32,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,Id,CreatedAt")]Student student)
+        public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")]Student student)
         {
             if (!ModelState.IsValid)
             {
@@ -42,14 +42,14 @@ namespace TeacherStudentProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
             return View(studentDetails);
             
         }
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
@@ -58,7 +58,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,Id,CreatedAt")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")] Student student)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace TeacherStudentProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
@@ -76,7 +76,7 @@ namespace TeacherStudentProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var studentDetails =  await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
