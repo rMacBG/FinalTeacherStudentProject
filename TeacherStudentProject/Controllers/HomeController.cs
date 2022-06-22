@@ -1,4 +1,4 @@
-﻿using FinalTeacherStudentProject.Data.ApplicationContext;
+﻿using TeacherStudentProject.Data.ApplicationContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

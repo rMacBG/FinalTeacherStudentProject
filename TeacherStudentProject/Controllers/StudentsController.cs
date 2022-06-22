@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FinalTeacherStudentProject.Data.ApplicationContext;
-using FinalTeacherStudentProject.Data.Models;
+using TeacherStudentProject.Data.ApplicationContext;
+using TeacherStudentProject.Data.Models;
 using TeacherStudentProject.Services;
 using TeacherStudentProject.Services.Interfaces;
 

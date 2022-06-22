@@ -1,4 +1,4 @@
-﻿using FinalTeacherStudentProject.Data.ApplicationContext;
+﻿using TeacherStudentProject.Data.ApplicationContext;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;

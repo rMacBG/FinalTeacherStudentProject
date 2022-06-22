@@ -6,13 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalTeacherStudentProject.Data.Models
+namespace TeacherStudentProject.Data.Models
 {
-   public class Speciality : BaseModel
+   public enum Speciality 
     {
+        Math,
+        Bulgarian,
+        English,
+        Russian,
+        Physics,
+        Chemistry,
+        Biology,
+        IT,
+        PE,
+        History,
+        [Display(Name ="Computer Science")]
+        ComputerScience,
+        Programming,   
+        Other
 
-
-        public string SpecialityName { get; set; }
-        public List<Speciality> SpecialityNames { get; set; }
+        
     }
 }

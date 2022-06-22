@@ -12,7 +12,7 @@ namespace FinalTeacherStudentProject.Data.Models
         public ICollection<Speciality> Specialities { get; set; }
 
         public DateTime BirthDate { get; set; }
-        public ICollection<Email> TeacherEmails { get; set; }
+       
 
     }
 }

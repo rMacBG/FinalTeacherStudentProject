@@ -1,4 +1,4 @@
-﻿using FinalTeacherStudentProject.Data.ApplicationContext;
+﻿using TeacherStudentProject.Data.ApplicationContext;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,10 +14,10 @@ namespace TeacherStudentProject.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
-        {
-            var data = _context.Specialities.ToList();
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    var data = _context.Specialities.ToList();
+        //    return View();
+        //}
     }
 }

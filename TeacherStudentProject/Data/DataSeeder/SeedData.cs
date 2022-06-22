@@ -1,5 +1,5 @@
-﻿using FinalTeacherStudentProject.Data.ApplicationContext;
-using FinalTeacherStudentProject.Data.Models;
+﻿using TeacherStudentProject.Data.ApplicationContext;
+using TeacherStudentProject.Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;

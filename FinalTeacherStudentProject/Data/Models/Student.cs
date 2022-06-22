@@ -17,6 +17,6 @@ namespace FinalTeacherStudentProject.Data.Models
 
         public DateTime BirthDate { get; set; }
 
-        public ICollection<Email> StudentEmails { get; set; }
+       
     }
 }

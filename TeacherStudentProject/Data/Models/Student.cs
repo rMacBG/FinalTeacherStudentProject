@@ -5,8 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeacherStudentProject.Data.Models;
 
-namespace FinalTeacherStudentProject.Data.Models
+namespace TeacherStudentProject.Data.Models
 {
   public  class Student : BaseModel
     {
@@ -26,11 +27,15 @@ namespace FinalTeacherStudentProject.Data.Models
         [StringLength(45, MinimumLength = 2)]
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }
-        public string Speciality { get; set; }
-        public Grade Grade { get; set; }
 
+        [Required(ErrorMessage = "A Speciality must be chosen!")]
+        public Speciality Speciality { get; set; }
+        [Required(ErrorMessage ="A grade must be given!")]
+        public Grade Grade { get; set; }
+        [Required(ErrorMessage = "Birth Date must be given to the student!")]
+        [Display(Name ="Birth Date")]
         public DateTime BirthDate { get; set; }
 
-        public ICollection<Email> StudentEmails { get; set; }
+        public List<Email> Email{ get; set; }
     }
 }

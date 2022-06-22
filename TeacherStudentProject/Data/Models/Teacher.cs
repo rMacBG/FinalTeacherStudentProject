@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TeacherStudentProject.Data.Models;
 
-namespace FinalTeacherStudentProject.Data.Models
+namespace TeacherStudentProject.Data.Models
 {
     public class Teacher : BaseModel
     {
@@ -18,9 +19,9 @@ namespace FinalTeacherStudentProject.Data.Models
         [StringLength(45, MinimumLength = 2)]
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }
-        [Required]
-        public ICollection<Speciality> Specialities { get; set; }
-        public ICollection<Email> TeacherEmails { get; set; }
+        [Required(ErrorMessage = "At least one speciality must be given!")]
+        public Speciality Speciality { get; set; }
+        public List<Email> Email { get; set; }
 
     }
 }

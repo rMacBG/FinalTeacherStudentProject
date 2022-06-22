@@ -1,13 +1,13 @@
-﻿@model IEnumerable<FinalTeacherStudentProject.Data.Models.Student>
+﻿@model IEnumerable<TeacherStudentProject.Data.Models.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Students list";
 }
 
-<h1>Index</h1>
+<h1>Student creator</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create a new Student</a>
 </p>
 <table class="table">
     <thead>
@@ -42,34 +42,34 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.FamilyName)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Speciality)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Grade)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.BirthDate)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit student's data!'</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details for student!</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete student!</a>
+            <td >
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="badge-info bi-pencil-square"></i>Edit student!</a> |
+                <a class="btn btn-outline-info"asp-action="Details" asp-route-id="@item.Id"><i class="badge-info bi-eye"></i>Details for student!</a> |
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="badge-info bi-trash"></i>Delete student!</a>
             </td>
         </tr>
 }
