@@ -41,11 +41,12 @@ namespace TeacherStudentProject.Data.Services.Services
             return result;
         }
 
-        public async Task<Student> UpdateAsync(Guid id, Student newStudent)
+        public async Task<Student> UpdateAsync(Guid id, Student student)
         {
-            _context.Update(newStudent);
+           
+            _context.Update(student);
             await _context.SaveChangesAsync();
-            return newStudent;
+            return student;
         }
     }
 }

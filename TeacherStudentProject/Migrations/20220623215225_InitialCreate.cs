@@ -26,8 +26,6 @@ namespace TeacherStudentProject.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmailAdress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -189,7 +187,7 @@ namespace TeacherStudentProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Emails",
+                name: "Email",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -200,15 +198,15 @@ namespace TeacherStudentProject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Emails", x => x.Id);
+                    table.PrimaryKey("PK_Email", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Emails_Students_StudentId",
+                        name: "FK_Email_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Emails_Teachers_TeacherId",
+                        name: "FK_Email_Teachers_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teachers",
                         principalColumn: "Id",
@@ -255,13 +253,13 @@ namespace TeacherStudentProject.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Emails_StudentId",
-                table: "Emails",
+                name: "IX_Email_StudentId",
+                table: "Email",
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Emails_TeacherId",
-                table: "Emails",
+                name: "IX_Email_TeacherId",
+                table: "Email",
                 column: "TeacherId");
         }
 
@@ -283,7 +281,7 @@ namespace TeacherStudentProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Emails");
+                name: "Email");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -10,7 +10,7 @@ namespace TeacherStudentProject.Data.Models
   public enum Grade 
     {
         [Display(Name = "1st Grade")]
-        FirstGrade= 1,
+        FirstGrade,
         [Display(Name = "2nd Grade")]
         SecondGrade,
         [Display(Name = "3rd Grade")]
@@ -33,9 +33,5 @@ namespace TeacherStudentProject.Data.Models
         EleventhGrade,
         [Display(Name = "12th Grade")]
         TwlelfthGrade
-
-
-        
-
     }
 }

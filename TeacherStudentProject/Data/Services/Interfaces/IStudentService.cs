@@ -13,5 +13,6 @@ namespace TeacherStudentProject.Services.Interfaces
         Task AddAsync(Student student);
         Task<Student> UpdateAsync(Guid id, Student newStudent);
         Task DeleteAsync(Guid id);
+        
     }
 }

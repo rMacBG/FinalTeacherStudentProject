@@ -1,2 +1,24 @@
-﻿
+﻿@model TeacherStudentProject.Data.Models.Teacher
 
+<h4>Teacher</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ShowFilteredResults">
+            
+            <div class="form-group">
+                <label for="Search" class="control-label"></label>
+                <input name="Search" class="form-control" />
+                <span  class="text-danger"></span>
+           </div>
+            
+        
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

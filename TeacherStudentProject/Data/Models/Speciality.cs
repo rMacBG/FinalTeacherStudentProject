@@ -14,16 +14,28 @@ namespace TeacherStudentProject.Data.Models
         Bulgarian,
         English,
         Russian,
+        Polish,
+        Portugal,
+        Spanish,
+        Chinese,
+        Japanese,
+        French,
+        German,
+        Algebra,
+        Geometry,
+        Electronics,
         Physics,
         Chemistry,
         Biology,
+        Pharmacy,
+        Bombing,
         IT,
         PE,
         History,
+        [Display(Name ="Computer Science")]
         ComputerScience,
-        Programming,   
-        Other
-
-        
+        Programming,
+        [Display(Name ="Web Design")]
+        WebDesign,
     }
 }

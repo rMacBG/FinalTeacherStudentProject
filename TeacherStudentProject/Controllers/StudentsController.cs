@@ -65,7 +65,7 @@ namespace TeacherStudentProject.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")] Student student)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")] Student student)
         {
             if (!ModelState.IsValid)
             {

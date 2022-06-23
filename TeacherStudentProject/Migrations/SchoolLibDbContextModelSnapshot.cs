@@ -243,7 +243,7 @@ namespace TeacherStudentProject.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Emails");
+                    b.ToTable("Email");
                 });
 
             modelBuilder.Entity("TeacherStudentProject.Data.Models.Student", b =>

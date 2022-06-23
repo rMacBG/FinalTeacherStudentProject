@@ -10,9 +10,7 @@ using TeacherStudentProject.Data.Models;
 namespace TeacherStudentProject.Data.Models
 {
   public  class Student : BaseModel
-    {
-
-       
+    { 
 
         [Required(ErrorMessage ="A First Name is required to be given!")]
         [StringLength(45, MinimumLength = 3)]

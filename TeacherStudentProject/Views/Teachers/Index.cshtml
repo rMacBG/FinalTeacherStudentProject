@@ -1,20 +1,16 @@
 ﻿@model IEnumerable<TeacherStudentProject.Data.Models.Teacher>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Teacher List";
 }
 
-<h1>Index</h1>
+<h1>Teacher list</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -36,9 +32,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
@@ -52,9 +45,9 @@
                 </td>
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit Teacher Information!</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details about Teacher!</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete Teacher</a>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit Teacher Information!</a> |
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details about Teacher!</a> |
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete Teacher</a>
                 </td>
             </tr>
 
@@ -63,5 +56,5 @@
     </tbody>
 </table>
 <div style="align-self: center; bottom: 25px" class="text-white">
-    <a asp-controller="Students" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add New </a>
+    <a asp-controller="Teachers" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add New </a>
 </div>

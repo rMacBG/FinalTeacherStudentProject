@@ -26,10 +26,6 @@ namespace TeacherStudentProject.Data.ApplicationContext
         public DbSet<Student> Students  { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
 
-        
-        public DbSet<Email> Emails { get; set; }
-       
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
