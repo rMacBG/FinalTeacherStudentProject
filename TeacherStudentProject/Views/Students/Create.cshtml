@@ -1,12 +1,13 @@
 ﻿@model TeacherStudentProject.Data.Models.Student
-
+@using TeacherStudentProject.Data.Models;
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Creation";
 }
+<div class="row text">
+    <div class="col-md-6 offset-1">
+<h1>Add a student</h1>
 
-<h1>Create</h1>
 
-<h4>Student</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Speciality" class="control-label"></label>
-                <input asp-for="Speciality" class="form-control" />
+                <select asp-for="Speciality" class="form-control" asp-items="Html.GetEnumSelectList<Speciality>()"></select>
                 <span asp-validation-for="Speciality" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,25 +43,18 @@
                 <input asp-for="BirthDate" class="form-control" />
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
-            
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-           </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+        </div>
+    </div>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-<div style="align-self: inherit; bottom: 25px" class="text-white">
-    <a asp-controller="Students" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add New </a>
-    </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

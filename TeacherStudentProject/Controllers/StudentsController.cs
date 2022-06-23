@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +27,14 @@ namespace TeacherStudentProject.Controllers
             var data = await _service.GetAllAsync();
             return View(data);
         }
-        public async Task<IActionResult> Create()
+
+        [Authorize]
+        public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")]Student student)
         {
@@ -42,14 +46,16 @@ namespace TeacherStudentProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Details(int id)
+        [Authorize]
+        public async Task<IActionResult> Details(Guid id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
             return View(studentDetails);
             
         }
-        public async Task<IActionResult> Edit(int id)
+        [Authorize]
+        public async Task<IActionResult> Edit(Guid id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
@@ -57,8 +63,9 @@ namespace TeacherStudentProject.Controllers
             
         }
 
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")] Student student)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FirstName,Surname,FamilyName,Speciality,Grade,BirthDate,CreatedAt")] Student student)
         {
             if (!ModelState.IsValid)
             {
@@ -67,16 +74,17 @@ namespace TeacherStudentProject.Controllers
             await _service.UpdateAsync(id, student);
             return RedirectToAction(nameof(Index));
         }
-
-        public async Task<IActionResult> Delete(int id)
+        [Authorize]
+        public async Task<IActionResult> Delete(Guid id)
         {
             var studentDetails = await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");
             return View(studentDetails);
         }
 
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var studentDetails =  await _service.GetByIdAsync(id);
             if (studentDetails == null) return View("NotFound");

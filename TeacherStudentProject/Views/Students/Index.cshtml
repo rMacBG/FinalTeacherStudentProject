@@ -4,11 +4,9 @@
     ViewData["Title"] = "Students list";
 }
 
-<h1>Student creator</h1>
+<h1>Students List</h1>
 
-<p>
-    <a asp-action="Create">Create a new Student</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -40,38 +38,42 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.FamilyName)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Speciality)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Grade)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td >
-                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="badge-info bi-pencil-square"></i>Edit student!</a> |
-                <a class="btn btn-outline-info"asp-action="Details" asp-route-id="@item.Id"><i class="badge-info bi-eye"></i>Details for student!</a> |
-                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="badge-info bi-trash"></i>Delete student!</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.FamilyName)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Speciality)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="badge-info bi-pencil-square"></i>Edit student!</a> |
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="badge-info bi-eye"></i>Details for student!</a> |
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="badge-info bi-trash"></i>Delete student!</a>
+                </td>
+            </tr>
+
+        }
+        
     </tbody>
 </table>
+<div style="align-self: center; bottom: 25px" class="text-white">
+    <a asp-controller="Students" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add New </a>
+</div>

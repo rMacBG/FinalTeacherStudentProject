@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Models\ViewModels\**" />
+    <Compile Remove="Views\Accounts\**" />
+    <Content Remove="Data\Models\ViewModels\**" />
+    <Content Remove="Views\Accounts\**" />
+    <EmbeddedResource Remove="Data\Models\ViewModels\**" />
+    <EmbeddedResource Remove="Views\Accounts\**" />
+    <None Remove="Data\Models\ViewModels\**" />
+    <None Remove="Views\Accounts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AccountsController.cs" />
     <Compile Remove="Migrations\20220614175815_TeacherFix.cs" />
     <Compile Remove="Migrations\20220614175815_TeacherFix.Designer.cs" />
     <Compile Remove="Migrations\20220615111312_Changes.cs" />
@@ -23,6 +35,11 @@
     <Compile Remove="Migrations\20220617201201_SomeThings.Designer.cs" />
     <Compile Remove="Migrations\20220617230204_ApplyChanges.cs" />
     <Compile Remove="Migrations\20220617230204_ApplyChanges.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\_Identity.cshtml" />
+    <Content Remove="Views\Teachers\Create1.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,7 +20,6 @@ namespace TeacherStudentProject.Data.Models
         IT,
         PE,
         History,
-        [Display(Name ="Computer Science")]
         ComputerScience,
         Programming,   
         Other

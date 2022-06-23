@@ -18,6 +18,8 @@ using TeacherStudentProject.Data.Services.Interfaces;
 using TeacherStudentProject.Data.Services.Services;
 using TeacherStudentProject.Models;
 using TeacherStudentProject.Services.Interfaces;
+using TeacherStudentProject.Data.Models;
+
 
 namespace TeacherStudentProject
 {
@@ -43,14 +45,15 @@ namespace TeacherStudentProject
             //Services Configs
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ITeacherService, TeacherService>();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<SchoolLibDbContext>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(); 
+            services.AddDefaultIdentity<IdentityUser>()
+             .AddEntityFrameworkStores<SchoolLibDbContext>();
+          
 
-            
+
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -66,12 +69,10 @@ namespace TeacherStudentProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+          
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

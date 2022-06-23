@@ -24,38 +24,44 @@
             <th>
                 @Html.DisplayNameFor(model => model.FamilyName)
             </th>
-
             <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
+                @Html.DisplayNameFor(model => model.Speciality)
             </th>
+           
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FamilyName)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FamilyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speciality)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit Teacher Information!</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details about Teacher!</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete Teacher</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit Teacher Information!</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details about Teacher!</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete Teacher</a>
+                </td>
+            </tr>
+
+        }
+        
     </tbody>
 </table>
+<div style="align-self: center; bottom: 25px" class="text-white">
+    <a asp-controller="Students" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add New </a>
+</div>

@@ -9,9 +9,9 @@ namespace TeacherStudentProject.Services.Interfaces
    public interface IStudentService
     {
         Task<IEnumerable<Student>> GetAllAsync();
-        Task<Student> GetByIdAsync(int id);
+        Task<Student> GetByIdAsync(Guid id);
         Task AddAsync(Student student);
-        Task<Student> UpdateAsync(int id, Student newStudent);
-        Task DeleteAsync(int id);
+        Task<Student> UpdateAsync(Guid id, Student newStudent);
+        Task DeleteAsync(Guid id);
     }
 }

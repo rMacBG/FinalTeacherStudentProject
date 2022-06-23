@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -25,12 +26,12 @@ namespace TeacherStudentProject.Controllers
             var data = await _service.GetAllAsync();
             return View(data);
         }
-
-        public async Task<IActionResult> Create()
+        [Authorize]
+        public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
 
         public async Task<IActionResult> Create([Bind("FirstName,Surname,FamilyName,BirthDate,CreatedAt")] Teacher teacher)
@@ -42,23 +43,23 @@ namespace TeacherStudentProject.Controllers
            }
            return View(teacher);
         }
-
-        public async Task<IActionResult> Details(int id)
+        [Authorize]
+        public async Task<IActionResult> Details(Guid id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
             return View(teacherDetails);
         }
-
-        public async Task<IActionResult> Edit(int id)
+        [Authorize]
+        public async Task<IActionResult> Edit(Guid id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
             return View(teacherDetails);
         }
-
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,Surname,FamilyName,BirthDate,CreatedAt")] Teacher teacher)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FirstName,Surname,FamilyName,BirthDate,CreatedAt")] Teacher teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -67,21 +68,33 @@ namespace TeacherStudentProject.Controllers
             await _service.UpdateAsync(id, teacher);
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Delete(int id)
+
+        [Authorize]
+        public async Task<IActionResult> Delete(Guid id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
             return View(teacherDetails);
         }
-
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var teacherDetails = await _service.GetByIdAsync(id);
             if (teacherDetails == null) return View("NotFound");
 
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
+        }
+        
+        public async Task<IActionResult> Filter()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ShowSearchResult(string FirstName, string Surname, string FamilyName)
+        {
+            var data = await _service.GetAllAsync();
+            return View("Index", data); 
         }
         //////////////////////////////////////////////////////////
         //private readonly SchoolLibDbContext _context;

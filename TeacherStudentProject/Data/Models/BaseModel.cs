@@ -11,11 +11,14 @@ using TeacherStudentProject.Models.Interfaces;
 
 namespace TeacherStudentProject.Data.Models
 {
-    public abstract class BaseModel : IBaseKey, IAuditInf
+    public class BaseModel : IAuditInf
     {
-        
-       
+        public BaseModel()
+        {
+            this.Id = Guid.NewGuid();
+        }
+        public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }
-        public int Id { get ; set ; }
+        
     }
 }
