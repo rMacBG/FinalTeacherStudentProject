@@ -32,6 +32,7 @@ namespace TeacherStudentProject.Data.Models
         public Grade Grade { get; set; }
         [Required(ErrorMessage = "Birth Date must be given to the student!")]
         [Display(Name ="Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
         public List<Email> Email{ get; set; }

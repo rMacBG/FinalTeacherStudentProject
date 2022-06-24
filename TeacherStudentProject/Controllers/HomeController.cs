@@ -19,25 +19,9 @@ namespace TeacherStudentProject.Controllers
             _logger = logger;
         }
 
-        public  IActionResult Index(string searchString)
+        public  IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Student()
-        {
-            return View();
-        }
-        
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        } 
     }
 }

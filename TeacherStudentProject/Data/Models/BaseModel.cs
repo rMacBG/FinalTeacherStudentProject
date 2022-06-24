@@ -18,7 +18,8 @@ namespace TeacherStudentProject.Data.Models
             this.Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
-        public DateTime CreatedAt { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         
     }
 }

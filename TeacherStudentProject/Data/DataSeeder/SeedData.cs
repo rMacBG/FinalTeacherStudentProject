@@ -29,20 +29,44 @@ namespace TeacherStudentProject.Data.DataSeeder
                             FirstName = "Pesho",
                             Surname = "Petrov",
                             FamilyName = "Petrov",
+                            Speciality = Speciality.Chinese,
+                            Grade = Grade.SixthGrade
 
                         },
                          new Student()
                         {
-                            FirstName = "Gosho",
-                            Surname = "Vladislavov",
-                            FamilyName = "Edrov",
+                            FirstName = "Petar",
+                            Surname = "Petkov",
+                            FamilyName = "Iavorov",
+                            Speciality = Speciality.Russian,
+                            Grade = Grade.SecondGrade
 
                         },
                             new Student()
                         {
-                            FirstName = "Mi60",
+                            FirstName = "Bobcho",
                             Surname = "Goshov",
                             FamilyName = "Peshov",
+                            Speciality = Speciality.English,
+                            Grade = Grade.TwlelfthGrade
+
+                        },
+                                new Student()
+                        {
+                            FirstName = "Iasen",
+                            Surname = "Ivanov",
+                            FamilyName = "Toshkov",
+                            Speciality = Speciality.Math,
+                            Grade = Grade.EleventhGrade
+
+                        },
+                                 new Student()
+                        {
+                            FirstName = "Ivan",
+                            Surname = "Goranov",
+                            FamilyName = "Georgiev",
+                            Speciality = Speciality.Chemistry,
+                            Grade = Grade.NinthGrade
 
                         },
 
@@ -55,32 +79,43 @@ namespace TeacherStudentProject.Data.DataSeeder
                     {
                         new Teacher()
                         {
-                             FirstName = "Fa6o",
+                             FirstName = "Georgi",
                             Surname = "Vurtoglavov",
                             FamilyName = "Pulev",
+                            Speciality = Speciality.Math
 
                         },
                          new Teacher()
                         {
-                             FirstName = "Koko",
-                            Surname = "Kukov",
-                            FamilyName = "Bonov",
+                             FirstName = "Iordan",
+                            Surname = "Stefanov",
+                            FamilyName = "Iavorov",
+                            Speciality = Speciality.English
 
                         },
 
                          new Teacher()
                         {
-                             FirstName = "Seb",
-                            Surname = "Astian",
-                            FamilyName = "Vettelov",
+                             FirstName = "Valentin",
+                            Surname = "Andrew",
+                            FamilyName = "Kolev",
+                            Speciality = Speciality.Russian
 
                         },
                           new Teacher()
                         {
-                             FirstName = "Lewis",
-                            Surname = "FantasticP",
-                            FamilyName = "Hamilton",
-                            
+                             FirstName = "Cheko",
+                            Surname = "Totev",
+                            FamilyName = "Petrov",
+                            Speciality = Speciality.Chinese
+
+                        },
+                          new Teacher()
+                        {
+                             FirstName = "Evgeni",
+                            Surname = "Cvetomirov",
+                            FamilyName = "Niikolov",
+                            Speciality = Speciality.Biology
 
                         }
 
